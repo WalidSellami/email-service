@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ subject | default("معلومات الجلسة المحجوزة") }}</title>
+    <style>
+        body {
+            font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .header {
+            background-color: #4a90e2;
+            height: 6px;
+        }
+
+        .content {
+            padding: 25px 20px;
+            color: #333333;
+            line-height: 1.6;
+            direction: rtl;
+        }
+
+        .content h2 {
+            margin-top: 0;
+        }
+
+        .content a {
+            color: #4a90e2;
+            text-decoration: none;
+        }
+
+        .warning {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #d9534f;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .email-container {
+                margin: 10px;
+            }
+
+            .content {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="email-container">
+    <div class="header"></div>
+    <div class="content">
+        <h2>مرحبًا</h2>
+        <p>فيما يلي تفاصيل الجلسة الخاصة بك:</p>
+
+        <p><strong>نوع الجلسة: </strong> {{ session_type }}</p>
+        <p><strong>المريض/ة: </strong> {{ user_name }}</p>
+        <p><strong>بريد المريض/ة الإلكتروني: </strong> {{ user_email }}</p>
+        <p><strong>حالة المريض/ة: </strong> <br> {{ user_condition }}</p>
+        <p><strong>التاريخ والوقت: </strong> {{ date }} - {{ time }}</p>
+
+        <p><strong>رابط الجلسة: </strong> <br>
+            <a href="{{ link }}">{{ link }}</a>
+        </p>
+        <p><strong>يرجى التأكد من الحضور في الوقت المحدد.</strong></p>
+        <p class="warning">سيتم إغلاق الرابط بعد 3 أيام من تاريخ الجلسة المحجوزة.</p>
+
+        <p>مع أطيب التحيات،<br><strong>فريق Serenity</strong></p>
+        <p><small>هذه رسالة آلية، يرجى عدم الرد عليها.</small></p>
+    </div>
+</div>
+
+</body>
+</html>
