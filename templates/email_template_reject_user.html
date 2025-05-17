@@ -2,7 +2,7 @@
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <title>{{ subject | default("إلغاء الجلسة") }}</title>
+    <title>{{ subject | default("تم إلغاء الجلسة") }}</title>
     <style>
         body {
             font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -70,7 +70,7 @@
         <p>تم إلغاء جلستك التي كانت مجدولة مع <strong>{{ therapist_name }}</strong>.</p>
         <p><strong>نوع الجلسة:</strong> {{ session_type }}</p>
         <p><strong>التاريخ والوقت:</strong> {{ date }} - {{ time }}</p>
-        <p><strong>بريد المعالج/ة الإلكتروني: </strong> {{ therapist_email }}</p>
+        <p><strong>بريد المعالج/ة الإلكتروني: </strong> <br> {{ therapist_email }}</p>
         <p><strong>سبب الإلغاء:</strong> <br> {{ reason_rejection }}</p>
 
         <p>مع أطيب التحيات،<br><strong>فريق Serenity</strong></p>
