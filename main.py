@@ -36,7 +36,7 @@ class EmailData(BaseModel):
     session_type: str
     date: str
     time: str
-    link: str
+    duration: str
     reason_rejection: str = ""
 
 
@@ -54,6 +54,7 @@ async def send_email(email_data: EmailData):
                 session_type=email_data.session_type,
                 date=email_data.date,
                 time=email_data.time,
+                duration = email_data.duration,
                 reason_rejection=email_data.reason_rejection,
             )
             msg = EmailMessage()
@@ -67,9 +68,10 @@ async def send_email(email_data: EmailData):
             template = env.get_template("email_template_user.html")
             html = template.render(
                 subject=email_data.subject,
-                link=email_data.link,
                 date=email_data.date,
                 time=email_data.time,
+                duration = email_data.duration,
+                link ='https://serenity-platform.web.app',
                 therapist_name=email_data.therapist_name,
                 therapist_email=email_data.therapist_email,
                 session_type=email_data.session_type,
@@ -85,11 +87,12 @@ async def send_email(email_data: EmailData):
             template = env.get_template("email_template_therapist.html")
             html = template.render(
                 subject=email_data.subject,
-                link=email_data.link,
                 date=email_data.date,
                 time=email_data.time,
+                duration = email_data.duration,
                 therapist_name=email_data.therapist_name,
                 session_type=email_data.session_type,
+                link ='https://serenity-platform.web.app',
                 user_name=email_data.user_name,
                 user_email=email_data.user_email,
                 user_condition=email_data.user_condition,

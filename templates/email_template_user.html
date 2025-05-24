@@ -79,18 +79,28 @@
           {{ therapist_email }}
         </p>
         <p><strong>التاريخ والوقت: </strong> {{ date }} - {{ time }}</p>
-
+        <p><strong>مدة الجلسة: </strong> {{ duration }} دقيقة</p>
+        <p><strong>الرابط:</strong></p>
         <p>
-          <strong>رابط الجلسة: </strong> <br />
-          <a href="{{ link }}">{{ link }}</a>
+          <a
+            href="{{ link }}"
+            style="
+              display: inline-block;
+              background-color: rgb(33, 118, 215);
+              color: white;
+              padding: 12px 20px;
+              text-align: center;
+              text-decoration: none;
+              border-radius: 6px;
+              font-weight: bold;
+            "
+          >
+            اذهب إلى المنصة
+          </a>
         </p>
         <p><strong>يرجى التأكد من الحضور في الوقت المحدد.</strong></p>
         <p class="warning">
-          سيتم إغلاق الرابط بعد 3 أيام من تاريخ الجلسة المحجوزة.
-        </p>
-        <p style="font-family: Arial, sans-serif; font-size: 14px; color: #333">
-          <strong>للحصول على أفضل تجربة:</strong><br />
-          يرجى الانضمام إلى الجلسة مباشرةً عبر المنصة. إذا كنت تستخدم هاتفك وتتصفح هذا البريد الإلكتروني من Gmail App، فننصحك باختيار <strong>الانضمام من المتصفح</strong> بدلاً من الفتح من خلال التطبيق.
+          سيتم إغلاق الرابط بعد 30 دقيقة من انتهاء وقت الجلسة المحجوزة.
         </p>
         <p>مع أطيب التحيات،<br /><strong>فريق Serenity</strong></p>
         <p><small>هذه رسالة آلية، يرجى عدم الرد عليها.</small></p>
